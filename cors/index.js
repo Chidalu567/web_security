@@ -7,7 +7,7 @@ const cors = require("cors"); //require file from node modules
 //cross origin resourse sharing (cors)
 app.use(
   cors({
-    origin: "localhost:3000/api/data",
+    origin: ["localhost:3000/api/data", "localhost:4000/api/people"],
     methods: ["PUT", "POST", "DELETE", "GET"],
     optionsSuccessStatus: 200,
   })

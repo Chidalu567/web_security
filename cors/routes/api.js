@@ -10,7 +10,10 @@ const homePage = fs.readFileSync(
 router.use("/", express.static("../static")); //middleware to use static files for this url
 
 router.get("/", (req, res) => {
-  res.status(200).send(homePage); //write to the client with status of 200
+  res
+    .status(200)
+    .header({ origin: "localhost:3000/api/data" })
+    .sendFile(homePage); //sendFIle to cloent as response with status of 200 and header for cors
   res.end(); //end response
 }); //get method
 
