@@ -11,9 +11,9 @@ router.use("/", express.static("../static")); //middleware to use static files f
 
 router.get("/", (req, res) => {
   res
+    .header({ origin: "localhost:300/api/data" })
     .status(200)
-    .header({ origin: "localhost:3000/api/data" })
-    .sendFile(homePage); //sendFIle to cloent as response with status of 200 and header for cors
+    .json({ msg: "The ssl certificate is working" }); //sendFIle to cloent as response with status of 200 and header for cors
   res.end(); //end response
 }); //get method
 
